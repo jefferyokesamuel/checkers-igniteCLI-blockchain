@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/alice/checkers/x/checkers/rules"
+	rules "github.com/alice/checkers/x/checkers/rules"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -29,6 +29,20 @@ func (storedGame StoredGame) ParseGame() (game *rules.Game, err error) {
     }
     return board, nil
 }
+
+func (storedGame StoredGame) Validate() (err error) {
+    _, err = storedGame.GetBlackAddress()
+    if err != nil {
+        return err
+    }
+    _, err = storedGame.GetRedAddress()
+    if err != nil {
+        return err
+    }
+    _, err = storedGame.ParseGame()
+    return err
+}
+
 
 
 var (
