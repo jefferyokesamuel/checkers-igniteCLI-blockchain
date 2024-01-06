@@ -2,7 +2,7 @@ package types_test
 
 import (
 	"testing"
-	
+
 	"github.com/alice/checkers/x/checkers/types"
 	"github.com/stretchr/testify/require"
 )
@@ -63,5 +63,3 @@ func TestGenesisState_Validate(t *testing.T) {
 		})
 	}
 }
-
-
