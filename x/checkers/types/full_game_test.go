@@ -1,7 +1,7 @@
 package types_test
 
 import (
-	"strings"
+	//"strings"
 	"testing"
 
 	rules "github.com/alice/checkers/x/checkers/rules"
