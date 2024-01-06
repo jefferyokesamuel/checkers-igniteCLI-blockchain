@@ -28,6 +28,18 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 		Red:   msg.Red,
 	}
 
+	err := storedGame.Validate()
+	if err != nil { 
+		return nil, err
+	}
+	k.Keeper.SetStoredGame(ctx, storedGame)
+	systemInfo.NextId++
+	k.Keeper.SetSystemInfo(ctx, systemInfo)
+	
+	return &types.MsgCreateGameResponse{
+		GameIndex: newIndex,
+	}, nil
+
 	_ = ctx
 
 	return &types.MsgCreateGameResponse{}, nil
