@@ -22,8 +22,8 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
-				SystemInfo: &types.SystemInfo{
-					NextId: 79,
+				SystemInfo: types.SystemInfo{
+					NextId: 39,
 				},
 				StoredGameList: []types.StoredGame{
 					{
@@ -63,3 +63,5 @@ func TestGenesisState_Validate(t *testing.T) {
 		})
 	}
 }
+
+
